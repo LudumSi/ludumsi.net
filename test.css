@@ -3,7 +3,7 @@ body{max-width: 1200px;
 	color:#444;
 	background: #d5d5d5;
 	margin:40px auto;
-	background-image:url("./background.jpg");
+	background-image:url("./resources/background.jpg");
 	background-size:cover;
 }
 
@@ -85,7 +85,7 @@ a.headerlink:hover{
 	body{
 		color:#f8f8f8;
 		background:#000;
-		background-image:url("./backgrounddark2.jpg");
+		background-image:url("./resources/backgrounddark2.jpg");
 		background-size:cover;
 	}
 	
