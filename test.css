@@ -1,20 +1,28 @@
-body{max-width: 1200px;
+:root{
+	--background: #f8f8f8;
+	--text: #444;
+	--borders: #d5d5d5;
+	--highlight: #e5ae49;
+	--highlight-dark: #b52501;
+}
+
+body{max-width: 900px;
 	font-family: 'Open Sans', sans-serif;
-	color:#444;
-	background: #d5d5d5;
+	color:var(--text);
+	background: var(--background);
 	margin:40px auto;
 	background-image:url("./resources/background.jpg");
 	background-size:cover;
 }
 
-#content{
+#maincontent{
 	padding:25px 25px;
 	border-style:solid;
 	border-width:thin;
 	border-radius: 10px;
-	border-color:#f8f8f8;
-	background: #f8f8f8;
-	box-shadow: 2px 2px 4px #444;
+	border-color:var(--borders);
+	background: var(--background);
+	box-shadow: 2px 2px 4px var(--text);
 }
 
 #header{
@@ -34,6 +42,60 @@ span.headerlink{
 	margin: 25px;
 }
 
+div.maincontainer{
+	margin: 20px 0px;
+	overflow: hidden;
+}
+
+div.leftbox{
+	float: left;
+	max-width: 61.2%;
+}
+
+div.rightbox{
+	max-width: 33%;
+	float: right;
+}
+
+div.altleftbox{
+	max-width: 33%;
+	float: left;
+}
+
+/* MAGA hat decidedly NOT included */
+div.altrightbox{
+	max-width: 61.2%;
+	float: right;
+}
+
+div.content{
+	margin: 0px 10px;
+}
+
+div.projectbox{
+	border-style:solid;
+	border-color: var(--text); 
+	border-radius: 10px;
+	border-width: thin;
+	margin: 10px 0px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+img{
+	border-radius: 10px;
+	background-size:contain;
+	width: 100%;
+	height: 100%;
+}
+
+object{
+	border-radius: 10px;
+	background-size:contain;
+	width: 100%;
+	height: 100%;
+}
+
 b{
 	color:000;
 }
@@ -51,17 +113,17 @@ hr{
 }
 
 .subtitle{
-	color:#e5ae49;
+	color:var(--highlight);
 }
 
 a:link{
 	text-decoration: none;
-	color: #e5ae49;
+	color: var(--highlight);
 }
 
 a:visited{
 	text-decoration: underline;
-	color: #b52501;
+	color: var(--highlight-dark);
 }
 
 a:hover{
@@ -69,64 +131,33 @@ a:hover{
 }
 
 a.headerlink:link{
-	color:#444;
+	color:var(--text);
 }
 
 a.headerlink:visited{
-	color: #444;
+	color: var(--text);
 }
 
 a.headerlink:hover{
-	color:#000;
-	text-decoration: underline;
+	color:var(--highlight);
+	text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark){
+	
+	:root{
+	--background: #444;
+	--text: #d5d5d5;
+	--borders: #111;
+	--highlight: #6295c6;
+	--highlight-dark: #8051ba;
+	}
+	
 	body{
-		color:#f8f8f8;
-		background:#000;
 		background-image:url("./resources/backgrounddark2.jpg");
-		background-size:cover;
 	}
 	
-	#content{
-		background:#444;
-		border-color: #111;
+	#maincontent{
 		box-shadow: 2px 2px 4px #111;
-	}
-	
-	b{
-		color: #fff;
-	}
-	
-	.subtitle{
-		color:#6295c6;
-	}
-	
-	a:link{
-		text-decoration: none;
-		color: #6295c6;
-	}
-
-	a:visited{
-		text-decoration: underline;
-		color: #8051ba;
-	}
-
-	a:hover{
-		text-decoration: underline;
-	}
-
-	a.headerlink:link{
-		color:#f8f8f8;
-	}
-
-	a.headerlink:visited{
-		color: #f8f8f8;
-	}
-
-	a.headerlink:hover{
-		color:#fff;
-		text-decoration: underline;
 	}
 }
