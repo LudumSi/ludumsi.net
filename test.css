@@ -85,6 +85,9 @@ div.projectbox{
 
 img{
 	border-radius: 10px;
+	border-style:solid;
+	border-width:thin;
+	border-color:var(--borders);
 	background-size:contain;
 	width: 100%;
 	height: 100%;
