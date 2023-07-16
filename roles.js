@@ -1,4 +1,22 @@
 
+class Guild{
+	constructor(name, roleslist, color){
+			this.name = name;
+			this.roleslist = roleslist;
+			this.color = color;
+	}
+}
+
+engineers = new Guild("Guild of Engineers", ["Redstone Engineer", "Pyrotech", "Dyer", "Entertainer"], "red");
+miners = new Guild("Order of Stone", ["Miner", "Mason", "Guard", "Inspector"], "orange");
+farmers = new Guild("Golden Hand Cooperative", ["Farmer", "Rancher", "Banker", "Trader"], "yellow");
+woodsmen = new Guild("Sylvan Lodge", ["Forester", "Monster Hunter", "Librarian", "Scholar"], "green");
+mafia = new Guild("Dockworker's Union", ["Fisher", "Quartermaster", "Lawyer", "Legislator"], "blue");
+wizards = new Guild("Occult League", ["Alchemist", "Enchanter", "Dimensional Delver", "Priest"], "purple");
+
+guildslist = [engineers, miners, farmers, woodsmen, mafia, wizards];
+
+/*
 guildslist = [
 	["Guild of Engineers", "Redstone, fireworks, dyes, entertainment"],
 	["Order of Stone", "Mining, stoneworking, military, law enforcement"],
@@ -13,6 +31,7 @@ tribelist = [
 	["Azure Kindred","Blue is their color, and blue is their way"],
 	["Verdant Folk","Green is their color, and green is their way"]
 ];
+*/
 
 secretlist = [
 	["Loyalist","You are fiercely loyal to the Ruler, and follow them faithfully"],
@@ -39,7 +58,24 @@ function pickElement(list){
 	return list[Math.floor(Math.random() * list.length)];
 }
 
-function addRole(roleslist, textlist){
+function addGuild(guilds){
+	
+	guild = pickElement(guilds);
+	roletext = pickElement(guild.roleslist);
+	
+	header = document.createElement("h2");
+	header.innerText = roletext;
+	header.className = "role";
+	roleslist.appendChild(header);
+	
+	newrole = document.createElement("p");
+	bodytext = "You are a member of the " + guild.name + ". Their color is " + guild.color;
+	newrole.innerText = bodytext;
+	newrole.className = "role";
+	roleslist.appendChild(newrole);
+}
+
+function addSimpleRole(roleslist, textlist){
 	
 	role_tuple = pickElement(textlist);
 	headertext = role_tuple[0];
@@ -65,10 +101,10 @@ function getRoles(){
 	
 	roleslist = document.getElementById("roleresults");
 	
-	addRole(roleslist, guildslist);
-	addRole(roleslist, tribelist);
+	addGuild(guildslist);
+	//addRole(roleslist, tribelist);
 	if(pickChance(30)){
-		addRole(roleslist, secretlist);
+		addSimpleRole(roleslist, secretlist);
 	}
 	
 }
